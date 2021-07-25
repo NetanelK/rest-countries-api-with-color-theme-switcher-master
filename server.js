@@ -72,6 +72,6 @@ fetch('https://restcountries.eu/rest/v2/all?fields=alpha3Code')
 // })
 // })
 
-app.listen(5500, () => {
+app.listen(process.env.PORT || 5500, () => {
     console.log('Listening at http://localhost:5500')
 })
