@@ -1,0 +1,38 @@
+<div class="header">
+    <div class="header-content">
+        <h3>Where in the world?</h3>
+        <input type="checkbox" name="night" id="night" style="display: none;" >
+        <label for="night" class="night-mode"><i class="far fa-moon"></i>Dark Mode</label>
+    </div>
+</div>
+<style>
+.header {
+    font-size: 16px;
+    background-color: var(--element-color);
+    padding: 1.5em 3em;
+    display: flex;
+    color: var(--text-color);
+    justify-content: center;
+
+}
+
+.header-content {
+    margin-left: 6em;
+}
+
+.header-content h3 {
+    display: inline-block;
+}
+
+.night-mode {
+    float: right;
+    margin-right: 6em;
+    font-weight: 800;
+    cursor: pointer;
+    user-select: none;
+}
+
+.night-mode i {
+    margin-right: .5em;
+}
+</style>

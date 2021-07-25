@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --text-color: hsl(200, 15%, 8%);
+    --background-color: hsl(0, 0%, 98%);
+    --element-color: hsl(0, 0%, 100%);
+}
+
+body {
+    font: 300 16px 'Nunito Sans', sans-serif;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+.content{
+    position: relative;
+    width: 100%;
+    margin: auto;
+    /* /* left: 95%; */
+    transform: translate(0, 15%);
+    display: flex;
+    flex-direction: column;
+    /* margin: 0 8%; */
+    align-items: center;
+}
+
+.wrap{
+    display: block;
+    margin-left: 6em;
+    margin-bottom: 5em;
+}
+
+.back{
+    position: relative;
+    /* display: block; */
+    width: fit-content;
+    text-decoration: none;
+    color: var(--text-color);
+    background-color: var(--element-color);
+    font-weight: 600;
+    padding: .5em 2em;
+    box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+}
+.back i {
+    position: relative;
+    margin-right: .5em;
+    top: 2px;
+    font-size: 20px;
+}
+
+.container{
+    position: relative;
+    /* width: 80%; */
+    display: flex;
+    /* justify-content: center;
+    align-content: center; */
+}
+
+.container img {
+    /* max-width: 500px;
+    height: auto; */
+    /* transform: scale(.5, .5); */
+    width: 450px;
+    height: 350px;
+    object-fit: fill;
+    margin: auto 3em;
+}
+
+.details-container{
+    display: grid;
+    grid-template-areas: "name name"
+                         "details-left details-right"
+                         "borders borders";
+    /* width: calc(100% - 450px); */
+    margin: 2em 4em;
+    max-width: 750px;
+}
+
+.details-container .name {
+    grid-area: name;
+    margin-bottom: .75em;
+}
+
+.details-container .details.left {
+    grid-area: details-left;
+    margin-bottom: 2em;
+}
+
+.details-container .details-right {
+    grid-area: details-right;
+}
+
+.details-container .borders {
+    grid-area: borders;
+    display: flex;
+}
+
+.borders span {
+    width: 150px;
+}
+
+.borders-links {
+    display: flex;
+    flex-wrap: wrap;
+    width: calc(100% - 150px);
+}
+
+.borders a {
+    display: block;
+    padding: .25em 2em;
+    margin-left: 1em;
+    margin-top: -.25em;
+    margin-bottom: .75em;
+    height: fit-content;
+    text-decoration: none;
+    color: var(--text-color);
+    background-color: var(--element-color);
+    box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.details span{
+    display: block;
+    margin-bottom: .5em;
+}
+
+.details strong {
+    font-weight: 800;
+}

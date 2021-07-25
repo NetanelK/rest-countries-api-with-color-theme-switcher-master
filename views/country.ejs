@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= country.name %></title>
+    <link rel="shortcut icon" href="<%= country.flag %>" type="image/x-icon">
+    <link rel="stylesheet" href=".\style\country.css">
+    <script src="https://kit.fontawesome.com/ab464933e7.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <%- include('./partials/_header'); %>
+
+    <div class="content">
+        <div class="wrap"><a href="/" class="back"><i class="fas fa-long-arrow-alt-left"></i>Back</a></div>
+        <div class="container">
+            <img src="<%= country.flag %>" alt="<%= country.name %> flag">
+            <div class="details-container">
+                <h2 class="name"><%= country.name %></h2>
+                <div class="details left">
+                    <span><strong>Native Name:</strong> <%= country.nativeName %></span>
+                    <span><strong>Population:</strong> <%= country.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") %></span>
+                    <span><strong>Region:</strong> <%= country.region %></span>
+                    <span><strong>Sub Region:</strong> <%= country.subregion %></span>
+                    <span><strong>Capital:</strong> <%= country.capital %></span>
+                </div>
+                <div class="details right">
+                    <span><strong>Top Level Domain:</strong> <%= country.topLevelDomain %></span>
+                    <span><strong>Currencies:</strong>
+                        <% country.currencies.forEach((currency, index) => { %>
+                            <% if(index != country.currencies.length-1) {%>
+                                <%= currency.name %>,
+                            <% } else  {%>
+                                <%=currency.name%>
+                        <% }}) %>
+                    </span>
+                    <span><strong>Languages: </strong>
+                        <% country.languages.forEach((language, index) => { %>
+                            <% if(index != country.languages.length-1) {%>
+                                <%= language.name %>,
+                            <% } else  {%>
+                                <%=language.name%>
+                        <% }}) %>
+                    </span>
+                </div>
+                <div class="borders">
+        
+                    <span><strong>Border Countries:</strong></span>
+                    <div class="borders-links">
+                        <% borders.forEach((border, index) => { %>
+                            <a href="<%= border.alpha3Code %>"><%= border.name %></a>
+                            <% }) %>
+                    </div>
+                </div>
+                </div>
+        </div>
+    </div>
+    <script>
+        let setter = document.querySelector('.container');
+        let back = document.querySelector('.wrap');
+        let header = document.querySelector('.header-content')
+        back.style.width = getComputedStyle(setter).width
+        header.style.width = getComputedStyle(setter).width
+
+    </script>
+    <script src=".\scripts\theme.js"></script>
+</body>
+</html>
