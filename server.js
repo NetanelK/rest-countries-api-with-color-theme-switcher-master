@@ -7,7 +7,7 @@ app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
 
 app.get('/', async (req, res) => {
-    let response = await fetch('https://restcountries.eu/rest/v2/all?fields=flag;name;region;capital;population;alpha3Code')
+    let response = await fetch('https://restcountries.com/v2/all?fields=flag;name;region;capital;population;alpha3Code')
     let countries = await response.json()
     res.render('index', { countries: countries })
 })
