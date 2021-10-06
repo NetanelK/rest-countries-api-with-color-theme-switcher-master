@@ -12,17 +12,17 @@ app.get('/', async (req, res) => {
     res.render('index', { countries: countries })
 })
 
-fetch('https://restcountries.eu/rest/v2/all?fields=alpha3Code')
+fetch('https://restcountries.com/v2/all?fields=alpha3Code')
     .then((res) => res.json())
     .then(countries => {
         countries.forEach(country => {
             app.get(`/${country.alpha3Code}`, async (req, res) => {
-                let response = await fetch(`https://restcountries.eu/rest/v2/alpha/${country.alpha3Code}`)
+                let response = await fetch(`https://restcountries.com/v2/alpha/${country.alpha3Code}`)
                 let countryData = await response.json()
                 let urls = []
 
                 countryData.borders.forEach(async (border) => {
-                    urls.push(`https://restcountries.eu/rest/v2/alpha/${border}?fields=alpha3Code;name`)
+                    urls.push(`https://restcountries.com/v2/alpha/${border}?fields=alpha3Code;name`)
                 })
 
                 Promise.all(urls.map(url =>
@@ -40,7 +40,7 @@ fetch('https://restcountries.eu/rest/v2/all?fields=alpha3Code')
 // app.engine('html', require('ejs').renderFile);
 
 // app.get('/', (res, req) => {
-// https.get("https://restcountries.eu/rest/v2/all?fields=alpha3Code", (res) => {
+// https.get("https://restcountries.com/v2/all?fields=alpha3Code", (res) => {
 //     let body = '';
 //     res.on('data', data => body += data)
 
@@ -49,7 +49,7 @@ fetch('https://restcountries.eu/rest/v2/all?fields=alpha3Code')
 //         countryCodes.forEach(countryCode => {
 //             app.get(`/${countryCode.alpha3Code}`, (req, res) => {
 //                 // res.send(`Hello World from ${countryCode.alpha3Code}`)
-//                 https.get(`https://restcountries.eu/rest/v2/alpha/${countryCode.alpha3Code}`, (httpRes) => {
+//                 https.get(`https://restcountries.com/v2/alpha/${countryCode.alpha3Code}`, (httpRes) => {
 //                     let body = '';
 //                     httpRes.on('data', data => body += data)
 
